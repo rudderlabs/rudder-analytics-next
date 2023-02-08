@@ -1,6 +1,13 @@
 import Head from "next/head";
+import React from 'react';
+import { rudderInitialize } from '../rudderInitialize';
 
 export default function Home() {
+
+  React.useEffect(() => {
+    rudderInitialize();
+  }, []);
+
   const search = () => {
     window.rudderanalytics.page();
     window.rudderanalytics.track("Track Event.");
